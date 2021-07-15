@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Details</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="./../style/card.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+        <nav class="navbar">
+            <% if (accountid !='' ){ %>
+                <a href="/<%= accountid %>" class="nav-logo">Gallery.</a>
+                <a id="imglink" href="/<%= accountid %>"> Show More</a>
+                <% }else{ %>
+                    <a id="imglink" href="/">Show More</a>
+                    <% } %>
+        </nav>
+    </header>
+        <h1>Profile</h1>
+        <div class="artist-card-container">
+            <div id="userDetails">
+                <h2>Name: <%= newUserData.name %>
+                </h2>
+                <h2>Email: <%= newUserData.email %>
+                </h2>
+            </div>
+            <div id="postDetails">
+                <% newUserData.userimages.forEach(userimage=> { %>
+                    <div id="card">
+                        <div id="cardImage">
+                            <img id="inpimage" src="../<%= userimage.imagefile %>" alt="">
+                        </div>
+                        <div id="cardTitle">
+                            <p>
+                                <%= userimage.description %>
+                            </p>
+
+                            <!-- <form action="/gallery/<%= newUserData.id %>/<%= userimage.id %>?_method=DELETE" method="POST">
+                            <button type="submit">Delete</button>
+                        </form> -->
+                        </div>
+                    </div>
+                    <%})%>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="./../style/card.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="navbar">
+                <a href="/<%= profileData.id %>" class="nav-logo">Gallery.</a>
+                <div>
+                    <a href="/<%= profileData.id %>">Go Back</a>
+                    <a  href="/gallery/uploadd/<%= profileData.id %>">Upload
+                            More</a>
+
+                </div>
+            </nav>
+        </header>
+        <h1>My Profile</h1>
+        <div id="profileDetails">
+            <h2>Name: <%= profileData.name %>
+            </h2>
+            <h2>Email: <%= profileData.email %>
+            </h2>
+        </div>
+        <div class="card-container">
+            <% profileData.userimages.forEach(userimage=> { %>
+                <div id="card">
+                    <div id="cardImage">
+                        <img id="inpimage" src="../<%= userimage.imagefile %>" alt="">
+                    </div>
+                    <div id="cardTitle">
+                        <div id="text">
+                            <p>
+                                <%= userimage.description %>
+                            </p>
+                        </div>
+                        <div id="cardButtons">
+                            <a href="/gallery/edit?userId=<%= profileData.id %>&userimage=<%= userimage.id %>">Edit</a>
+                            <form action="/gallery/<%= profileData.id %>/<%= userimage.id %>?_method=DELETE"
+                                method="POST">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/card.css">
+    <title>Gallery</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">Gallery.</a>
+                <% if(userid !='' ){ %>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" id="" href="/gallery/<%= userid.id %>/create">Upload</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" id=""
+                                href="/gallery/myprofile?myprofileid=<%= userid.id %>">My Profile</a></li>
+                        <div>
+                            <form id="logoutid" action="/logout?_method=DELETE" method="post">
+                                <button type="submit">Logout</button>
+                            </form>
+                        </div>
+                    </ul>
+                    <% }else{ %>
+                        <ul class="nav-menu">
+
+                            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                        </ul>
+                        <% } %>
+                            <div class="hamburger">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </div>
+            </nav>
+        </header>
+        <h1>Welcome <%= typeof userid !='' ? userid.name : '' %>
+        </h1>
+        <div class="card-container">
+            <% for(var userData of userDatas) { %>
+                <% if (userData.userimages !='' ){ %>
+                    <% for(var userimage of userData.userimages) { %>
+                        <div id="card">
+                            <div id="cardImage">
+
+                                <img id="inpimage" src="../<%= userimage.imagefile  %>" alt="">
+                            </div>
+                            <div id="cardTitle">
+                                <div>
+                                    <p id="description">
+                                        <%= userimage.description %>
+                                    </p>
+
+                                </div>
+                                <div id="imgName">
+                                    <h4>Name: <%= userData.name %>
+                                    </h4>
+                                    <a id="imglink"
+                                        href="/gallery/accountids?accountid=<%= userid.id %>&userid=<%=  userData.id  %>">Show
+                                        More</a>
+                                </div>
+                                <!-- <form action="/gallery/<%= userData.id %>?_method=DELETE" method="post">
+                                <button type="submit">Delete</button>
+                            </form> -->
+
+                            </div>
+                        </div>
+                        <% } %>
+                            <% } %>
+                                <% } %>
+        </div>
+    </div>
+    <script src="../js/client.js"></script>
+</body>
+
+</html>

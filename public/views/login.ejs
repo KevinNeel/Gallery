@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style/login&regis.css">
+    <title>Login Page</title>
+</head> 
+<body>
+    <div class="container">
+    <h1>Login Page</h1>
+    <% if (messages.error) { %>
+        <%= messages.error %>
+      <% } %>
+      <div id="divform">
+    <form id="form" action="/login" method="post">
+    <input id="email" type="email" name="email" placeholder="Enter your email">
+    <input id="password" type="password" name="password" placeholder="Enter your password">
+    <button type="submit">Login</button>
+    <div id="accountInfo">
+        <h4>Don't have an account?</h4>
+    <a href="/register">Register</a></div></div></div>
+</form>    
+</body>
+</html>
