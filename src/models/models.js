@@ -1,5 +1,4 @@
 const mongose = require('mongoose');
-const hashPassword = require('../secure.js');
 const bcrypt = require('bcrypt');
 
 const gallery_Schema = new mongose.Schema({
