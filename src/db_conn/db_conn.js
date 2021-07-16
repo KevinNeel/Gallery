@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/Gallery',{
+mongoose.connect('mongodb://localhost:27017/Gallery',{
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,

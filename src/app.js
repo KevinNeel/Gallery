@@ -16,9 +16,9 @@ var ObjectId = mongoose.Types.ObjectId;
 app.use(flash())
 app.use(session({
     secret: 'secret',
-    resave: false,
     saveUninitialized: true,
-}))
+    resave: false
+    }));
 app.use(passport.initialize());
 
 app.use(passport.session());
