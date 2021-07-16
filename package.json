@@ -8,7 +8,7 @@
     "start": "node src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "KevinNeel",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
