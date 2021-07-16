@@ -14,7 +14,7 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose')
 var ObjectId = mongoose.Types.ObjectId;
 app.use(flash())
-app.use(session({ cookie: { maxAge: 86400000 },
+app.use(session({
     secret: 'secret',
     saveUninitialized: true,
     resave: false
