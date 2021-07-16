@@ -7,6 +7,7 @@ require('./db_conn/db_conn');
 const gallery = require('./models/models');
 const methodOverride = require('method-override');
 const session = require('express-session')
+var MemoryStore = require('memorystore')(session)
 const flash = require('express-flash')
 var passport = require('passport');
 const userAuth = require('./auth');
@@ -15,6 +16,10 @@ const mongoose = require('mongoose')
 var ObjectId = mongoose.Types.ObjectId;
 app.use(flash())
 app.use(session({
+        cookie: { maxAge: 86400000 },
+        store: new MemoryStore({
+          checkPeriod: 86400000 // prune expired entries every 24h
+        }),
     secret: 'secret',
     saveUninitialized: true,
     resave: false
