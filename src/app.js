@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'))
 
-const port = process.env.PORT | 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
