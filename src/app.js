@@ -6,7 +6,7 @@ const multer = require('multer');
 require('./db_conn/db_conn');
 const gallery = require('./models/models');
 const methodOverride = require('method-override');
-const session = require('express-session')
+const session = require('cookie-session')
 const flash = require('express-flash')
 var passport = require('passport');
 const userAuth = require('./auth');
@@ -14,25 +14,11 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose')
 var ObjectId = mongoose.Types.ObjectId;
 app.use(flash())
-app.set('trust proxy', 1);
-
 app.use(session({
-    cookie: {
-        secure: true,
-        maxAge: 60000
-    },
-    store: new RedisStore(),
     secret: 'secret',
     saveUninitialized: true,
     resave: false
-}));
-
-app.use(function (req, res, next) {
-    if (!req.session) {
-        return next(new Error('Oh no')) //handle error
-    }
-    next() //otherwise continue
-});
+    }));
 app.use(passport.initialize());
 
 app.use(passport.session());
@@ -57,7 +43,7 @@ app.get('/', async (req, res) => {
         if (req.user) {
             const userDatas = await gallery.find();
             res.status(200).redirect(`/${req.user.id}`)
-
+            
         } else {
             const userDatas = await gallery.find();
             const userid = '';
@@ -121,15 +107,15 @@ app.delete('/logout', (req, res) => {
 
 app.get('/:id', chechAuth, async (req, res) => {
     try {
-        const newuserid = req.params.id
-
+        const newuserid = req.params.id 
+       
         const userDatas = await gallery.find();
-        if (newuserid.match(/^[0-9a-fA-F]{24}$/)) {
-            const userid = await gallery.findById(new ObjectId(newuserid));
+        if(newuserid.match(/^[0-9a-fA-F]{24}$/)){
+            const userid = await  gallery.findById( new ObjectId(newuserid));
             res.status(200).render('index', { userDatas: userDatas, userid: userid })
-        } else {
-            res.send('error');
-        }
+              } else{
+                  res.send('error');
+              }
     } catch (error) {
         res.status(500).redirect('index');
         console.log(error)
