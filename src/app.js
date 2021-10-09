@@ -82,7 +82,7 @@ app.post('/register', checkNotAuth, async (req, res) => {
             password: req.body.password
         });
         const userdata = await newUserData.save();
-        res.status(200).redirect(`/${userdata.id}`);
+        res.status(200).redirect(`/login`);
     } catch (error) {
         res.status(500).send('Please fill the info')
         console.log(error)
@@ -128,7 +128,7 @@ function chechAuth(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
     }
-    res.redirect('/')
+    res.redirect('/login')
 }
 
 function checkNotAuth(req, res, next) {
