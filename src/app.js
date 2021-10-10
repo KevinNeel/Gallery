@@ -12,6 +12,7 @@ var passport = require('passport');
 const userAuth = require('./auth');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose')
+
 var ObjectId = mongoose.Types.ObjectId;
 app.use(flash())
 app.use(session({
