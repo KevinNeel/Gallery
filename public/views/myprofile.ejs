@@ -25,10 +25,12 @@
         </header>
         <h1>My Profile</h1>
         <div id="profileDetails">
+            <img id="profileImage" src="<%= profileData.profileimage[0].userimage %>" alt="">
+            <div class="profileBio">
             <h2>Name: <%= profileData.name %>
             </h2>
             <h2>Email: <%= profileData.email %>
-            </h2>
+            </h2></div>
         </div>
         <div class="card-container">
             <% profileData.userimages.forEach(userimage=> { %>

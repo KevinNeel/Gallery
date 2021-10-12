@@ -55,21 +55,19 @@
                             </div>
                             <div id="cardTitle">
                                 <div>
-                                    <p id="description">
-                                        <%= userimage.description %>
-                                    </p>
+                                    <h4>Name: <%= userData.name %>
+                                    </h4>
+                                    
 
                                 </div>
                                 <div id="imgName">
-                                    <h4>Name: <%= userData.name %>
-                                    </h4>
+                                    <p id="description">
+                                        <%= userimage.description %>
+                                    </p>
                                     <a id="imglink"
                                         href="/gallery/accountids?accountid=<%= userid.id %>&userid=<%=  userData.id  %>">Show
                                         More</a>
                                 </div>
-                                <!-- <form action="/gallery/<%= userData.id %>?_method=DELETE" method="post">
-                                <button type="submit">Delete</button>
-                            </form> -->
 
                             </div>
                         </div>

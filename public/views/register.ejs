@@ -14,17 +14,23 @@
         <h1>Register Page</h1>
 
         <div id="divform">
-            <form id="form" action="/register" method="post">
+            <form id="form" action="" method="post" enctype="multipart/form-data">
+                <div id="maindiv">
+                <div id="profileimage">
+                <input type="file" name="imagefile" onchange="loadFile(event)" placeholder="Upload Image">
+                <img src="" id="output" srcset="" alt="Upload the Image"></div>
+                <div id="registerDetails">
                 <input id="text" type="text" name="name" placeholder="Enter your name">
                 <input id="email" type="email" name="email" placeholder="Enter your email">
-                <input id="password" type="password" name="password" placeholder="Enter your password">
+                <input id="password" type="password" name="password" placeholder="Enter your password"></div></div>
                 <button type="submit">Register</button>
                 <div id="accountInfo">
                     <h4>Already have an account?</h4>
                 <a href="/login">Login</a>
+            </form>
         </div>
     </div>
-    </form>
+    <script src="../../../js/client.js"></script>
 </body>
 
 </html>

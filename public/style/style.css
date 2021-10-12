@@ -50,6 +50,19 @@ body{
 
 #profileDetails{
     margin: 20px 0px;
+    display: flex;
+}
+#profileImage{
+    height: 200px;
+width: 200px;
+border: 1px solid black;
+border-radius: 115px;
+margin-left: 50px;
+}
+
+.profileBio{
+    margin-left: 88px;
+
 }
 
 .container h2{
@@ -70,6 +83,7 @@ body{
     font-weight: 500;
     color: white;
 }
+
 
 
 /* .container nav{

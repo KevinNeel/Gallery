@@ -25,10 +25,12 @@
         <h1>Profile</h1>
         <div class="artist-card-container">
             <div id="userDetails">
+            <img id="profileImage" src="<%= newUserData.profileimage[0].userimage %>" alt="">
+                <div  class="profileBio">
                 <h2>Name: <%= newUserData.name %>
                 </h2>
                 <h2>Email: <%= newUserData.email %>
-                </h2>
+                </h2></div>
             </div>
             <div id="postDetails">
                 <% newUserData.userimages.forEach(userimage=> { %>

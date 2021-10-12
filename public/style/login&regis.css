@@ -58,6 +58,7 @@ h1{
     background-color: #ad73bb;
     color: white;
     font-weight: 600;
+    margin-left: 21px;
 }
 
 #accountInfo{
@@ -76,9 +77,32 @@ h1{
     font-size: 18px;
 }
 
+#profileimage{
+display: flex;
+flex-direction: column-reverse;
+width: 50%;
+}
+
+#maindiv{
+    display: flex;
+}
+
+#profileimage input{
+    margin-left: 33px;
+}
+
+#profileimage img{
+    border: 1px solid black;
+    position: relative;
+    height: 150px;
+    width: 42%;
+    border-radius: 91px;
+    margin-left: 65px;
+}
+
 @media only screen and (max-width: 2000px){
     #form{
-        width: 30%;
+        width: 66%;
     }
 }
 
