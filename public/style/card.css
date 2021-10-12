@@ -33,6 +33,9 @@
 #imgName{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+    height: 56%;
 }
 
 #imgName h4{
@@ -48,7 +51,7 @@
 }
 
 #card{
-    height: 100%;
+    height: 110%;
     margin: 15px 5px;
     box-shadow: 0px 0px 74px rgba(0 ,0 ,0, 0.2);
 }
@@ -57,7 +60,7 @@
 
 
 #cardImage{
-    height: 70%;
+    height: 75%;
     position: relative;
 }
 
@@ -71,40 +74,60 @@
 #cardTitle{
     display: flex;
     flex-direction: column;
-    height: 30%;
+    height: 25%;
     justify-content: space-around;
 }
 
 #cardTitle p{
     height: 50%;
     font-family: sans-serif;
-    margin: 10px 0px;
      word-break: break-word ;
      white-space: normal;
 }
 
+#userprofileiamge{
+    display: flex;
+}
+
+#userimage{
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 50px;
+    margin-left: 12px;
+}
+
 #cardTitle p,a,form{
     padding: 5px;
+    margin-left: 8px;
 }
 
-
+#cardTitle h4{
+    margin-left: 12px;
+}
 
 #cardTitle a{
-        cursor: pointer;
-        border-radius: 25px;
-        border: none;
-        font-size: 16px;
-        padding: 12px 15px;
-        color: #f3eaea;
-        text-decoration: none;
-        background-color: #b942e4;
-        font-weight: bold;
-        position: relative;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
     z-index: 1;
-
-        margin: 0px 5px;
+    text-align: center;
+    width: 98%;
+    text-align: inherit;
 }
 
+#cardTitle a:hover{
+    border-bottom: 3px solid #b942c4;
+}
+
+#span{
+    font-size: 17px;
+    font-weight: bolder;
+}
 
 #text{
     height: 60%;
@@ -115,6 +138,8 @@ height: 30%;
     display: flex;
     justify-content: space-between;
 }
+
+
 
 @media only screen and (min-width:539px) and (max-width:3900px ) 
 {

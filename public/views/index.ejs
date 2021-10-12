@@ -54,8 +54,9 @@
                                 <img id="inpimage" src="<%=userimage.imagefile  %>" alt="">
                             </div>
                             <div id="cardTitle">
-                                <div>
-                                    <h4>Name: <%= userData.name %>
+                                <div id="userprofileiamge">
+                                    <img id="userimage" src="<%= userData.profileimage[0].userimage %>" alt="">
+                                    <h4><%= userData.name %>
                                     </h4>
                                     
 
@@ -65,8 +66,8 @@
                                         <%= userimage.description %>
                                     </p>
                                     <a id="imglink"
-                                        href="/gallery/accountids?accountid=<%= userid.id %>&userid=<%=  userData.id  %>">Show
-                                        More</a>
+                                        href="/gallery/accountids?accountid=<%= userid.id %>&userid=<%=  userData.id  %>">Visit Profile <span id="span">></span>
+                                        </a>
                                 </div>
 
                             </div>

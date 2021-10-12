@@ -48,7 +48,6 @@ route.get("/accountids", async (req, res) => {
     const accountid = req.query.accountid;
     const userid = req.query.userid;
     const newUserData = await gallery.findById(userid);
-    console.log(newUserData)
     res.render("new", {
       newUserData: newUserData,
       accountid: accountid,
