@@ -1,23 +1,2 @@
 The const (variables) names are really bad so sorry for that!!!
 I created it to do some practice with nodejs, mongoose, mongodb and passportjs..
-
-.findById(61612dab913fc219b87eacff)
-    .select({ userimages: { $elemMatch: { _id:61628e80157fab29a002aa42 } } });
-
-
-    db.galleryimages.update(
-      { _id: "61612dab913fc219b87eacff" },
-      {
-        $pull: {
-          userimages: { _id: "61628e80157fab29a002aa4" }
-        }
-      }
-    );
-
-db.stores.update(
-    {  _id: "61612dab913fc219b87eacff"},
-    { $pull: { userimages: { $in: [ _id: "61628e80157fab29a002aa4" ] } } },
-    { multi: true }
-)
-    
-    db.galleryimages.update( { _id: "61612dab913fc219b87eacff" }, { $pull: { userimages: { $gte: 6 } } } )
