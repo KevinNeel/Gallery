@@ -70,13 +70,13 @@ app.get("/register", (req, res) => {
   }
 });
 
-app.post("/register",  async (req, res) => {
+app.post("/register", checkNotAuth, async (req, res) => {
   try {
     upload(req, res, async function (err) {
       if (err) return console.log(err);
       else {
         const result = await cloudinary.v2.uploader.upload(req.file.path);
-        const newUserData = new gallery({
+        const newUserData = await new gallery({
           name: req.body.name,
           email: req.body.email,
           password: req.body.password,
