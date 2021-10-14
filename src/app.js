@@ -70,7 +70,7 @@ app.get("/register", (req, res) => {
   }
 });
 
-app.post("/register", checkNotAuth, async (req, res) => {
+app.post("/register",  async (req, res) => {
   try {
     upload(req, res, async function (err) {
       if (err) return console.log(err);
