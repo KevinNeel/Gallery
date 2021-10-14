@@ -75,15 +75,20 @@ app.post("/register", checkNotAuth, async (req, res) => {
     upload(req, res, async function (err) {
       if (err) return console.log(err);
       else {
+        const result = await cloudinary.v2.uploader.upload(req.file.path);
         const newUserData = await new gallery({
           name: req.body.name,
           email: req.body.email,
-          password: req.body.password
+          password: req.body.password,
+          profileimage:[{
+            cloudinaryProfile_id: result.public_id,
+            userimage:  result.secure_url
+          }]
         });
         const userdata = await newUserData.save();
+        res.status(200).redirect(`/login`);
       }
     });
-    res.status(200).redirect(`/login`);
   } catch (error) {
     res.status(500).send("Please fill the info");
     console.log(error);
